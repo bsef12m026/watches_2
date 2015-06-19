@@ -24,6 +24,7 @@
                 <td>CellNo</td>
                 <td>Address</td>
                
+               
             </tr>
     </Table>
 
@@ -74,6 +75,7 @@
                 <td>Email</td>
                 <td>CellNo</td>
                 <td>Address</td>
+                 <td><b>Photo</b></td>
                
             </tr>
     </Table>
@@ -166,7 +168,7 @@
                 $('#show3').show();
                 $.each(data, function (i, n) {
                     $('#result3').text("Data Found");
-                    $("#show3").append('<tr><td>' + n.Username + '</td> </t>' + '<td>' + n.Password + '</td></t>' + ' <td>' + n.Name + '</td>' + '<td>' + n.Email + '</td>' + '<td>' + n.CellNo + '</td>' + '<td>' + n.Address + '</td></tr>');
+                    $("#show3").append('<tr><td>' + n.Username + '</td> </t>' + '<td>' + n.Password + '</td></t>' + ' <td>' + n.Name + '</td>' + '<td>' + n.Email + '</td>' + '<td>' + n.CellNo + '</td>' + '<td>' + n.Address + '</td><td><img style="height:90px ; width:90px" src="' + n.Photo + '"</img></td></tr>');
                 }
 
             )
