@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "/Views/Shared/_OLayout.cshtml";
+      
+}
+@if (Session["loginAdmin"] == null || (int)Session["loginAdmin"] != 1)
+{
+    <form action="/Client/validateCus" method="post">
+    <div style=" margin-left:200px">
+        
+    
+        <lable>User Name:</lable>
+        </div>
+    <div style="margin-left:200px">
+        <input type="text" name="Uname" />
+        
+    </div>
+    <div style="margin-left:200px">
+        <label> Password:</label>
+        <input type="password" name="pass" />
+
+        <input type="submit" value="Login" id="sign" />
+    </div>
+
+       </form>
+    
+}
+else
+{
+    
+    <h2>Already Logged IN </h2>
+    <form action="/Client/signOut" method="post" >
+    <input type="submit" value="SignOUT" />
+    </form>
+   
+   
+}
+
+    
+   

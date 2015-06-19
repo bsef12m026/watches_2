@@ -1,0 +1,56 @@
+﻿
+
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+      
+}
+
+  <form action="/Admin/SaveCustomer" method="post">
+         <div style="padding-left:300px ; margin-top:50px">
+        
+             <div class="form-group">
+               <label name="uname" >User name</label>
+                <input type="text" class="form-control" id="name" name="Uname" />
+                
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password</label>
+                <input type="password" class="form-control" id="pwd" name="Password"/>
+            </div>
+
+              <div class="form-group">
+                <label for="pwd">Retype Password</label>
+                <input type="password" class="form-control" id="pwd1" name="Password1"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="Text1" name="Name"/>
+            </div>
+            <div class="form-group">
+                <label for="mail">Email</label>
+                <input type="email" class="form-control" id="email" name="Email" />
+            </div>
+            <div class="form-group">
+                <label for="cell">Cell#</label>
+                <input type="tel" class="form-control" id="cell" name="CellNo"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="add">Full Address</label>
+                <input type="text" style="width:500px" name="Address" />
+            </div>
+            <div class="form-control">
+                <label for="uploading">upload photo</label>
+                <input type="file" accept="image/*" name="image" />
+            </div>
+            <button type="submit" class="btn btn-Info">Add</button>
+        
+     </div>
+
+</form>
+         
+   
+<script type="text/javascript">
+    window.history.forward(-1);
+</script>

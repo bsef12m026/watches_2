@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Watch Centre</title>
+
+    <script src="~/Scripts/jquery-1.7.1.js" ></script>
+    <script src="~/Scripts/bootstrap.js" ></script>
+    <script src="~/Scripts/bootstrap.min.js" ></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body style="background-color:beige" >
+      <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <a class="brand" href="~/Client/Index" >Home</a>
+            <ul class="nav">
+                <li><a href="~/Client/ViewWatches">View Watches</a></li>
+                <li><a href="~/Client/Search">Search Watches</a></li>
+                <li><a href="~/Client/BuyWatch">Buy Watches</a></li>
+                <li><a href="~/Client/ContactUs">Contact Us</a></li>
+            </ul>
+            <div class="pull-right">
+                 <a href="~/Client/SignIn">
+                 <input class="btn btn-info"  type="button" value="SignIn" />
+                </a>
+                
+           <a href="/Client/SignUp">
+                <input type="button"  class="btn btn-info" value="SignUp"/>
+               </a>
+                </div>
+        </div>
+     </div>
+
+    <div class="main-slider">
+		<div class="container" style="margin-left:200px">
+		  <br>
+		  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+			  <div class="item active">
+                  
+				<img src="~/Images/Latest-Wrist-Watches-Fancy-Collection-2014-For-Women-18.jpg" alt="Chania" width="600px" height="200px">
+				
+			  </div>
+                
+			  <div class="item">
+				<img src="~/Images/HT1_MmsFNJbXXagOFbXh.jpg" alt="Chania" width="600px" height="200px">
+				
+			  </div>
+                
+			  <div class="item">
+				<img src="~/Images/Tourbillon_Diamant.jpg" alt="Flower" width="600" height="200">
+				
+			  </div>
+               
+			  <div class="item">
+				<img  src="~/Images/Rolex-Datejust-Automatic-Watch-Full-Gold-Diamond-49.jpeg.jpg" alt="Flower" width="600px" height="200px">
+				
+			  </div>
+			</div>
+              
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <img src="~/Images/left.png" />
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="margin-right:330px">
+			  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <img src="~/Images/right.png"  />
+			</a>
+		  </div>
+		</div>
+	</div>
+
+    @RenderBody()
+     <footer class="navbar navbar-fixed-bottom" style="padding-left:300px; color:black" >
+        <br />
+         <!-- <label  >CopyRight BSEF12m036 2012-2016</label> -->
+    </footer>
+</body>
+</html>

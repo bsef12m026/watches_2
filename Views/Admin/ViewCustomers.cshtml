@@ -1,0 +1,180 @@
+﻿@model List<WatchExpo.Models.Watch>
+
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="margin-top:80px ; margin-left:100px">
+    <lable>Enter the Customer Name</lable>
+    
+    <input type="text" name="customerName" id="customerId" />
+    <input type ="Button" id="btn1" value="Get Details" />
+</div>
+
+<div id="result" style="margin-left:150px" ></div>
+<div id="showhead">
+    <Table id="show" style="margin-left:150px ;  border-color:orange" border="1" >
+    
+          <tr>
+                <td>UserName</td>
+                <td>Password</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>CellNo</td>
+                <td>Address</td>
+               
+            </tr>
+    </Table>
+
+</div>
+
+<div style="margin-top:20px ; margin-left:250px">
+    <h3>OR</h3>
+</div>
+
+<div style="margin-top:20px ; margin-left:100px">
+    <lable>Enter  the  Customer ID : </lable>
+    <input type="text" id="customerId1" name="customerName1"/>
+    <input type ="Button" value="Get details" id="btn2" />
+</div>
+<div id="result2" style="margin-left:150px" ></div>
+
+<Table id="show1" style="margin-left:150px ; border-color:violet" border="1" >
+    
+          <tr>
+                <td>UserName</td>
+                <td>Password</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>CellNo</td>
+                <td>Address</td>
+               
+            </tr>
+    </Table>
+
+<div style="margin-top:20px ; margin-left:250px">
+    <h3>OR</h3>
+</div>
+
+<div style="margin-top:20px ; margin-left:100px ">
+    <lable>View All Customers </lable>
+   
+    <input type ="Button" value="Get details" id="btn3"  />
+</div>
+
+<div id="result3" style="margin-left:150px" ></div>
+
+<Table id="show3" style="margin-left:150px ; border-color:blueviolet" border="1"  >
+    
+          <tr>
+                <td>UserName</td>
+                <td>Password</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>CellNo</td>
+                <td>Address</td>
+               
+            </tr>
+    </Table>
+
+<div style="margin-top:20px ; margin-left:100px ">
+    <lable>Delete Customer </lable>
+    <form action="/Admin/Delete" method="post" >
+   <input type="text" placeholder="Enter Customer Name" id="customerDel" name="customerDel" />
+    <input type ="submit" value="Delete" id="btn4"  />
+        </form>
+</div>
+<div style="margin-bottom:300px"></div>
+
+
+<script>
+ $(document).ready(function () { })
+        
+ 
+        $('#btn1').click(function()
+        {
+            var bran = $('#customerId').val();
+           
+            
+            $('#result').text("User already exists in database");
+            $('#result').text("User already exists in database1111");
+            $.getJSON("/admin/viewByCusName?customerName="+ bran ,function(data)
+            {
+                $('#result').text("User already exists in database2222");
+                if (data) {
+                    $('#result').text("NO Data Found");
+
+                }
+                else {
+                    $('#result').text("User already exists in database33333");
+                    $('#result').text("Watch Found");
+                }
+              
+                
+                $('#show').show();
+                $('#showhead').show();
+                $('#show').show();
+                $.each(data,function(i,n)
+                {
+                    $('#result').text("Data Found");
+                    $("#show").append('<tr><td>' + n.Username + '</td> </t>' + '<td>' + n.Password + '</td></t>' + ' <td>' + n.Name + '</td>'+ '<td>' + n.Email + '</td>'+ '<td>' + n.CellNo + '</td>'+ '<td>' + n.Address + '</td></tr>');
+                }
+                
+            )
+            })
+        })
+
+        $('#btn2').click(function()
+        {
+            var bran2 = $('#customerId1').val();
+
+
+           
+            $.getJSON("/admin/viewByCusId?customerName1=" + bran2, function (data) {
+                $('#result2').text("User already exists in database2222");
+                if (data) {
+                    $('#result2').text("NO Data Found");
+
+                }
+                else {
+                    $('#result2').text("User already exists in database33333");
+                    $('#result2').text("Watch Found");
+                }
+
+
+              
+                
+                $('#show1').show();
+                $.each(data, function (i, n) {
+                    $('#result2').text("Data Found");
+                    $("#show1").append('<tr><td>' + n.Username + '</td> </t>' + '<td>' + n.Password + '</td></t>' + ' <td>' + n.Name + '</td>' + '<td>' + n.Email + '</td>' + '<td>' + n.CellNo + '</td>' + '<td>' + n.Address + '</td></tr>');
+                }
+
+            )
+            })
+        })
+
+
+        $('#btn3').click(function () {
+            var bran2 = $('#customerId1').val();
+
+
+
+            $.getJSON("/admin/viewByCusAll?customerName1=" + bran2, function (data) {
+             
+                $('#show3').show();
+                $.each(data, function (i, n) {
+                    $('#result3').text("Data Found");
+                    $("#show3").append('<tr><td>' + n.Username + '</td> </t>' + '<td>' + n.Password + '</td></t>' + ' <td>' + n.Name + '</td>' + '<td>' + n.Email + '</td>' + '<td>' + n.CellNo + '</td>' + '<td>' + n.Address + '</td></tr>');
+                }
+
+            )
+            })
+        })
+        
+    </script>
+
+<script type="text/javascript">
+    window.history.forward(-1);
+</script>

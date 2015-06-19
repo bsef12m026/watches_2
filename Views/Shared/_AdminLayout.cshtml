@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+     <title>Watch Centre</title>
+    <script src="~/Scripts/jquery-1.7.1.js" ></script>
+    <script src="~/Scripts/bootstrap.js" ></script>
+    <script src="~/Scripts/bootstrap.min.js" ></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body style="background-color:beige"> <!--  ; background-image:url(../../Images/best-dive-watches-gear-patrol-lead-full-.jpg)" > -->
+    
+   
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand" href="~/Admin/AdminPanel">Manage Watches</a>
+            <ul class="nav">
+                <li><a href="~/Admin/AddCustomers">Add Customers</a></li>
+                <li><a href="~/Admin/ViewCustomers">Manage Customers</a></li>
+                <li><a href="~/Admin/ViewPurchases">View Purchases</a></li>
+               
+            </ul>
+            <div class="pull-right">
+                
+           <a href="SignOut">
+                <input type="button"  class="btn btn-info" value="SignOut"/>
+               </a>
+                </div>
+        </div>
+     </div>
+
+
+
+   
+
+    @RenderBody()
+
+
+</body>
+</html>

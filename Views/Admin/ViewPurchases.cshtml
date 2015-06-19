@@ -1,0 +1,81 @@
+﻿
+
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+      
+}
+<!--
+<div style="margin-top:50px ; margin-left:100px">
+    <lable>View Today Purchases </lable>
+   
+    <input type ="Button" value="Get details" />
+</div>
+
+<div style="margin-top:20px ; margin-left:250px">
+    <h3>OR</h3>
+</div>
+    -->
+<div style="margin-top:100px ; margin-left:100px">
+    <lable>View All Purchases </lable>
+
+
+        <form action="/Admin/GetDetails" method="post" >
+
+            <input type ="button" id="btn" value="GetDetails" />
+
+       </form>
+</div>
+
+<div  style="margin-left:150px" >
+    <div>
+        <Table id="show" style="border-color:red" border="1">
+            <tr>
+            <td><b>Watch ID</b></td>
+            <td><b>Customer ID</b></td>
+            <Td><b>Purchasing Date</b></Td>
+            
+            </tr>
+
+           
+            </Table>
+     </div>
+</div>
+
+<script >
+       
+       $(document).ready(function () { })
+     
+       $('#brand1').popover(); 
+        $('#btn').click(function()
+        {
+            var bran = $('#brand1').val();
+            $("#watches option").remove();
+            
+            $('#result').text("User already exists in database");
+            $('#result').text("User already exists in database1111");
+            $.getJSON("/admin/CheckPurchase?Brand="+ bran ,function(data)
+            {
+                $('#result').text("User already exists in database2222");
+                if (data.length == 0 ) {
+                    $('#result').text("No Watch Found");
+
+                }
+                else {
+                    $('#result').text("Watch Found");
+                }
+                
+                
+                $('#show').show();
+                $.each(data,function(i,n)
+                {
+                    $("#show").append('<tr><td>' + n.WatchId + '</td> </t>' + '<td>' + n.CusId + '</td></t>' + ' <td>' + n.Date + '</td></tr>');
+                }
+                
+            )
+            })
+         })
+        
+    </script>
+<script type="text/javascript">
+    window.history.forward(-1);
+</script>

@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = "/Views/Shared/_OLayout.cshtml";
+      
+}
+   @if (Session["loginadmin"] == null || (int)Session["loginAdmin"] != 1)
+{
+    <h2>please LOgin </h2>
+}
+else
+   {
+       
+<div style="margin-left:100px">
+    <form action="/Client/buyNew" method="post" >
+        <div>
+    <label>Brand</label><input type="text"  name="brandd" />
+        </div>
+        <div>
+    <label>Model</label><input type="text" name="model" />
+            </div>
+    <input type="submit" value="Buy Now" />
+        </form>
+</div>
+ <div style="margin-left:100px  ;margin-top:50px ">
+<h1 style="color:rosybrown"> View Watches </h1>
+</div>
+<div style="margin-top:80px ; margin-left:100px">
+     <lable>View All Watches</lable>
+     <input id="btn1" type="button" value="Get Details" />
+
+    </div>
+<div>
+<Table id="show" style="margin-left:200px ; border-color:orange ; border-style:double ">
+    
+          <tr>
+                <td><b>Brand</b></td>
+                <td><b>Model</b></td>
+                <td><b>Price</b></td>
+                <td><b>Photo</b></td>
+            </tr>
+    </Table>
+    
+</div>
+<div style="margin-bottom:300px" ></div>
+    
+<div class="container" >
+    <div class="row">
+        <div class="col-md-3 center-block">
+            
+                <img  onmouseover="$(this).attr('src','/Images/Rado%20Black%20Gold-800x800.jpg')" class="span12 ; img-responsive"  onmouseout="$(this).attr('src','/images/Rolex-Datejust-Automatic-Watch-Full-Gold-Diamond-62.jpeg')" src="~/images/Rolex-Datejust-Automatic-Watch-Full-Gold-Diamond-62.jpeg" style="height:200px ; width:250px "  />
+                
+        </div>
+          
+        <div class="col-md-3 center-block">
+                <img  class="span10" src="~/images/Rolex-GMT-Master-Watch-Automatic-Full-Gold-CZ.jpeg"  style="height:200px ; width:250px "   />
+        
+            
+       
+      
+            </div>
+        <div class="col-md-3 center-block">
+              
+                <img class="span12" src="~/images/Rado-Swiss-Watches-Collection-2013-3.jpg" style="height:200px ; width:250px "  />
+                
+        </div>
+        <div class="col-md-3 center-block">
+                <img  class="span10" src="~/images/Rado-watches-for-men.jpg"  style="height:200px ; width:250px"   />
+        
+            
+       
+        
+            </div>
+        
+        
+    </div>
+</div>
+   }
+<script>
+    $(document).ready(function () { })
+
+
+    $('#btn1').click(function () {
+        var bran = $('#customerId').val();
+
+       
+        $('#result').text("User already exists in database");
+        $('#result').text("User already exists in database1111");
+        $.getJSON("/admin/viewWatchjs?customerName=" + bran, function (data) {
+            $('#result').text("User already exists in database2222");
+            if (data) {
+                $('#result').text("NO Data Found");
+
+            }
+            else {
+                $('#result').text("User already exists in database33333");
+                $('#result').text("Watch Found");
+            }
+
+
+            $('#show').show();
+            $('#showhead').show();
+            $('#show').show();
+            $.each(data, function (i, n) {
+                $('#result').text("Data Found");
+                $("#show").append('<tr><td style="width:100px">' + n.Brand + '</td> </t>' + '<td style="width:100px">' + n.Model + '</td></t>' + ' <td style="width:100px">' + n.Price + '</td><td style="width:100px"><img style="height:90px ; width:90px" src="' + n.Photo + '"</img></td></tr>');
+            }
+
+        )
+        })
+    })
+</script>
+<script>
+    function changeText(id) {
+        src = "~/Images/Rado%20Black%20Gold-800x800.jpg"
+    id.innerHTML = "Ooops!";
+}
+</script>
